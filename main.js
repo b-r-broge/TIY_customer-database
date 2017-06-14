@@ -30,11 +30,11 @@
 
           // Add bio info to div
           let custName = document.createElement('h4');
-            custName.textContent = cust.name.first.toUpperCase() + ' ' + cust.name.last.toUpperCase();
+            custName.textContent = cust.name.first + ' ' + cust.name.last;
           newCust.appendChild(custName);
 
           let custEmail = document.createElement('h5');
-            custEmail.textContent = cust.email.toUpperCase();
+            custEmail.textContent = cust.email;
           newCust.appendChild(custEmail);
 
           let custContact = document.createElement('pre');
@@ -44,7 +44,6 @@
                 cust.location.city + ', ' + cust.location.state + " " + cust.location.postcode + '\n ';
             contactStr +=
                 cust.phone;
-            contactStr = capWords(contactStr);
             custContact.textContent = contactStr;
           newCust.appendChild(custContact);
 
@@ -53,7 +52,3 @@
       });
     });
 })();
-
-function capWords(str) {
-  return str.split(' ').map((a) => a[0].toUpperCase()+a.slice(1)).join(' ');
-}
